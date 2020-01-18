@@ -1,0 +1,55 @@
+
+.tracker{
+ background-color: grey;
+ width: 100%;
+ height: 2px;
+ display: flex;
+ //border: 2px solid;
+ 
+}
+
+.bar-completed {
+    background-color: chartreuse;
+    height: 100%;
+    max-width: 100%;
+}
+
+.segment {
+    height: 100%;
+    //width: 75%;
+    flex-grow: 1;
+    position: relative;
+    //border: 1px solid;
+
+}
+
+.bar {
+    height: 100%;
+}
+
+
+
+
+
+
+
+.segment-completed {
+    // Bola
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    
+    position: absolute;
+    z-index: 99;
+    top: 50%;
+    right: 0;
+    transform:  translate(50%, -50%);
+    background-color:white;
+    border: solid 2px;
+    box-sizing: border-box;
+}
+
+.segment-completed-filled {
+    background-color: crimson;
+    border: none;
+}

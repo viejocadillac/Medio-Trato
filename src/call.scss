@@ -1,0 +1,65 @@
+.notificaciones {
+
+    //background-color: tomato;
+    position: fixed;
+    bottom: 0;
+   
+
+}
+.call {
+    padding: 1em;
+    margin: 1em;
+    min-width: 280px;
+    background-color:slategrey;
+    text-align: center;
+    animation-name: slideFromBottom;
+    animation-duration: 1s;
+
+    div {
+        margin-top: 1em;;
+    }
+
+    span {
+        color: White;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    h2 {
+        color: white;
+        margin: 0;
+    }
+
+    input {
+        margin: 0.5em;
+        
+    }
+}
+
+.contra {
+    display: flex;
+    margin-top: 0.2;
+    flex-direction: column;
+    align-items: center;
+    input {
+        width: 50%;
+    }
+
+    input[type="range"]{
+        width: 90%;
+    }
+
+    .contra-oferta-valor {
+        font-size: 20px;
+    }
+}
+
+@keyframes slideFromBottom {
+    from {
+        
+        bottom: -100px;
+    }
+    to {
+        
+        bottom: 0;
+    }
+}
