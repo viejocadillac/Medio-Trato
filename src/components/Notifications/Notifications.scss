@@ -1,0 +1,30 @@
+.notificaciones {
+    position: fixed;
+    bottom: 0;
+}
+
+.step-enter {
+    transform: translateY(500px);
+}
+
+.step-enter.step-enter-active {
+   
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+    transform: translateY(0);
+}
+
+.step-exit {
+   
+    transition-property: opacity;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+    opacity: 1;
+}
+
+.step-exit.step-exit-active {
+    opacity: 0;
+}
+
+

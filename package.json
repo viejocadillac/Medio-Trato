@@ -6,13 +6,20 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
+    "better-docs": "^1.4.7",
+    "jsdoc": "^3.6.3",
+    "parcel-bundler": "^1.12.4",
+    "prop-types": "^15.7.2",
     "react": "^16.12.0",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "documentar": "npx styleguidist build",
+    "hotDocs": "npx styleguidist server",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -32,6 +39,7 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "^4.13.1"
+    "node-sass": "^4.13.1",
+    "react-styleguidist": "^10.6.0"
   }
 }

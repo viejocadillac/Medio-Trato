@@ -1,0 +1,18 @@
+.contra {
+    display: flex;
+    margin-top: 0.2;
+    flex-direction: column;
+    align-items: center;
+    input {
+        width: 50%;
+    }
+
+    input[type="range"]{
+        width: 90%;
+    }
+
+    .contra-oferta-valor {
+        font-size: 20px;
+    }
+}
+
