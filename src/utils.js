@@ -1,55 +1,55 @@
 
-const pickRandom = (array)=>{
-    const randomIndex = Math.floor(Math.random() * array.length)
-    let random = array[randomIndex]
-    return random
-}
+/**
+ * Toma un elemento aleatorio del array pasado como parametro
+ * @param {array} array Array del cual se quiere tomar un item aleatorio
+ * @returns {number} Elemento aleatorio del array
+ */
+const pickRandomFromArray = (array) => {
+  const randomIndex = Math.floor(Math.random() * array.length);
+  const random = array[randomIndex];
+  return random;
+};
 
-const pickRandomNoDuplicated = (valores)=> {
-    const generados = []
-    let random;
+const randomizeArray = (array) => {
+  const generados = [];
+  let random;
 
-    while(generados.length < valores.length){
-        random = pickRandom(valores)
-        if(!generados.includes(random)){
-            generados.push(random)
-        }
-
+  while (generados.length < array.length) {
+    random = pickRandomFromArray(array);
+    if (!generados.includes(random)) {
+      generados.push(random);
     }
-    return generados
-}
+  }
+  return generados;
+};
 
 
-const generarMaletines = (valores)=>{
+const generarMaletines = (valores) => {
+  const unorderedValues = randomizeArray(valores);
+  const maletines = [];
 
-    const unorderedMaletines = pickRandomNoDuplicated(valores)
-    const maletines = []
-
-    for (let i = 0; i < valores.length; i++) {
-        maletines.push({numero:i+1, valor:unorderedMaletines[i]})
-        
-    }
-    return maletines
-    
-
-
-}
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < valores.length; i++) {
+    maletines.push({ numero: i + 1, valor: unorderedValues[i] });
+  }
+  return maletines;
+};
 
 const generarOferta = (array) => {
-    let suma = 0
-    array.forEach((v)=> suma += v)
-    return suma / array.length
-}
+  /* TODO:
+        Cambiar manera en que se realiza el calculo de la oferta,
+  */
+  const suma = array.reduce((acc, value) => acc + value);
+  return suma / array.length;
+};
 
 
-const quitarMaletin = (maletines, numero) => {
-    return maletines.filter((maletin) => maletin.numero !== numero)
-}
+const quitarMaletin = (maletines, numero) => maletines.filter((malet) => malet.numero !== numero);
 
 export {
-    pickRandom,
-    pickRandomNoDuplicated,
-    generarMaletines,
-    generarOferta,
-    quitarMaletin,
-}
+  pickRandomFromArray,
+  randomizeArray,
+  generarMaletines,
+  generarOferta,
+  quitarMaletin,
+};

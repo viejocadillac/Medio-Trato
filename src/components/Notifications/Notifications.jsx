@@ -1,17 +1,28 @@
-import React from 'react'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import './Notifications.scss'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Animate from 'animate.css-react';
+import 'animate.css/animate.css';
+import './Notifications.scss';
 
 
-const Notifications = (props)=> {
+const Notifications = ({ children }) => (
+  <div className="notificaciones">
+    <Animate
+      appear="fadeInDown"
+      durationAppear={1000}
+      component="div"
+    >
+      {children}
+    </Animate>
+  </div>
+);
 
-    return (
-        <div className="notificaciones">
-            <ReactCSSTransitionGroup transitionName="step" transitionEnterTimeout={300} transitionLeaveTimeout={300}> 
-                {props.children}
-            </ReactCSSTransitionGroup> 
-        </div>
-    )
-}
+Notifications.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.arrayOf(PropTypes.bool),
+  ]).isRequired,
+};
+
 
 export default Notifications;

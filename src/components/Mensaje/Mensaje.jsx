@@ -1,7 +1,21 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Animate from 'animate.css-react';
+import 'animate.css/animate.css';
 
-const Mensaje = ({children}) => {
-    return children
-}
+const Mensaje = ({ children }) => (
+  <Animate
+    appear="zoomIn"
+    leave="fadeOut"
+    durationAppear={2000}
+    component="div"
+  >
+    {children}
+  </Animate>
+);
 
-export default Mensaje
+Mensaje.propTypes = {
+  children: PropTypes.element.isRequired,
+};
+
+export default Mensaje;

@@ -49,7 +49,7 @@
     
 }
 
-.rigth {
+.rigth{
     padding: 0.7em;
     display: flex;
     z-index: 999;
@@ -65,26 +65,27 @@
 .valor {
     border-radius: 5px;
     margin: 0.2em;
-    background-color:white;
+    background-color: gold;
     padding: 0.1em;
     text-align: center;
     font-size: small;
     font-weight: bold;
     color: grey;
     flex-grow: 1;
-    transition: linear opacity 1s;
+    transition-property: opacity color background-color;
+    transition: linear opacity 2s;
 }
+
+
 
 .valor-abierto{
-    opacity: 0.3;
-    color:black;
-    //background-color: RED;
+    opacity: 0.2;
+    color:White;
+    background-color:Grey;
+
+ 
 }
 
-.valor-disponible {
-    background-color: gold;
-    border-radius: 3px;
-}
 
 .trato-aceptado{
 
