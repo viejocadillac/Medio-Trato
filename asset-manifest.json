@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/Medio-Trato/static/css/main.bce68cb7.chunk.css",
+    "main.js": "/Medio-Trato/static/js/main.4ce91cb8.chunk.js",
+    "main.js.map": "/Medio-Trato/static/js/main.4ce91cb8.chunk.js.map",
+    "runtime-main.js": "/Medio-Trato/static/js/runtime-main.85f5b308.js",
+    "runtime-main.js.map": "/Medio-Trato/static/js/runtime-main.85f5b308.js.map",
+    "static/css/2.ff29e5f6.chunk.css": "/Medio-Trato/static/css/2.ff29e5f6.chunk.css",
+    "static/js/2.23ca9ec1.chunk.js": "/Medio-Trato/static/js/2.23ca9ec1.chunk.js",
+    "static/js/2.23ca9ec1.chunk.js.map": "/Medio-Trato/static/js/2.23ca9ec1.chunk.js.map",
+    "index.html": "/Medio-Trato/index.html",
+    "precache-manifest.e10f1ee96f91ee80b1f9ec83d6f7baff.js": "/Medio-Trato/precache-manifest.e10f1ee96f91ee80b1f9ec83d6f7baff.js",
+    "service-worker.js": "/Medio-Trato/service-worker.js",
+    "static/css/2.ff29e5f6.chunk.css.map": "/Medio-Trato/static/css/2.ff29e5f6.chunk.css.map",
+    "static/css/main.bce68cb7.chunk.css.map": "/Medio-Trato/static/css/main.bce68cb7.chunk.css.map",
+    "static/js/2.23ca9ec1.chunk.js.LICENSE": "/Medio-Trato/static/js/2.23ca9ec1.chunk.js.LICENSE",
+    "static/media/maletin.svg": "/Medio-Trato/static/media/maletin.64d3e995.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.85f5b308.js",
+    "static/css/2.ff29e5f6.chunk.css",
+    "static/js/2.23ca9ec1.chunk.js",
+    "static/css/main.bce68cb7.chunk.css",
+    "static/js/main.4ce91cb8.chunk.js"
+  ]
+}
