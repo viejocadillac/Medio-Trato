@@ -31,8 +31,12 @@
     min-height: 100vh;
     height: 100%;
     padding: 3em;
+  
     padding-top: 0.2em;
     //background-color: yellow;
+    @media screen and (max-width: 500px){
+        padding: 1em;
+    }
 
     h2 {
         text-align: center;
@@ -49,26 +53,62 @@
     
 }
 
+div.swal2-range{
+    flex-wrap: wrap;
+
+}
+
+.swal2-range input{
+    display: block;
+    width: 100%;
+}
+.swal2-range output{
+    display: block;
+    width: 100%;
+    font-size: 1.8em;
+
+    &::before {
+        content: '$ ';
+    }
+
+    
+}
+
+.footer-buttons {
+    display:flex;
+    flex-wrap: wrap;
+  
+    justify-content: center;
+}
+
+
 .rigth{
-    padding: 0.7em;
+    padding: 0.6em;
     display: flex;
-    z-index: 999;
     flex-direction: column;
     width: 200px;
-    min-height: 100vh;
-    height: 100%;
+    //min-height: 100vh;
+    //height: 100%;
     box-shadow: 0px 10px 15px 3px rgba(0,0,0,0.5);
     box-sizing: border-box;
+    @media screen and (max-width: 500px){
+        width: 110px;
+    }
     
 }
 
 .valor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     border-radius: 5px;
     margin: 0.2em;
     background-color: gold;
     padding: 0.1em;
     text-align: center;
-    font-size: small;
+  
+    font-size: 0.7em;
     font-weight: bold;
     color: grey;
     flex-grow: 1;
@@ -87,7 +127,8 @@
 }
 
 
-.trato-aceptado{
+.trato-aceptado, .bienvenida{
+    text-align: center;
 
     text-align: center;
     h2 {
@@ -96,5 +137,10 @@
 
     span {
         font-weight: lighter;
+        text-align: center;
     }
+}
+
+.swal-confirmButton {
+    background-color: Tomato;
 }

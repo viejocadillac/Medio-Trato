@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import Maletin from '../Maletin/Maletin';
 import './MaletinSeleccionado.scss';
 
-const MaletinSeleccionado = ({ maletin }) => (
+const MaletinSeleccionado = ({ maletin, mensaje }) => (
   <div className="display-seleccionado">
-    <span>Este es tu maletin</span>
+    <span>{mensaje}</span>
     <Maletin
       className="seleccionado"
       numero={maletin.numero}
@@ -22,6 +22,7 @@ MaletinSeleccionado.propTypes = {
     numero: PropTypes.number,
     valor: PropTypes.number,
   }).isRequired,
+  mensaje: PropTypes.string.isRequired,
 
 };
 
