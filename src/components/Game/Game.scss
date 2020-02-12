@@ -53,9 +53,10 @@
     
 }
 
+
+
 div.swal2-range{
     flex-wrap: wrap;
-
 }
 
 .swal2-range input{
@@ -64,12 +65,18 @@ div.swal2-range{
 }
 .swal2-range output{
     display: block;
-    width: 100%;
+    margin: 0 auto;
     font-size: 1.8em;
+    white-space: nowrap;
+    width: auto;
 
     &::before {
         content: '$ ';
+
     }
+
+
+  
 
     
 }

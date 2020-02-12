@@ -14,6 +14,7 @@ import {
   generarMaletines,
   generarOferta,
   quitarMaletin,
+  isValidContraoferta,
 } from '../../utils';
 
 /**
@@ -30,12 +31,64 @@ const STEPS_PER_SEGMENT = [6, 5, 4, 3, 2, 1, 1, 1, 1];
 
 const MySwal = withReactContent(Swal);
 
-const isValidContraoferta = (oferta, valorContraoferta) => {
-  /* Entre 15% y 20% */
-  const porcentajeRandom = (15 + (Math.random() * 5)) / 100;
-  const valorMaximoContraoferta = Math.floor(oferta + (oferta * porcentajeRandom));
-  return valorContraoferta < valorMaximoContraoferta;
-}
+const swals = {
+  bienvenida: () => {
+    MySwal.fire({
+      title: <p>Bienvenido</p>,
+      html: <p>Selecciona un maletin para empezar a jugar</p>,
+      footer: 'Medio Trato',
+      confirmButtonColor: 'Gold',
+    });
+  },
+  oferta: (valorDeOferta, buttons) => {
+    MySwal.fire({
+      allowOutsideClick: false,
+      title: <p>Oferta</p>,
+      html: (
+        <div>
+          <p>El tesorero te ofrece:</p>
+          <h2>{`$ ${valorDeOferta}`}</h2>
+        </div>
+      ),
+      footer: buttons,
+      showConfirmButton: false,
+    });
+  },
+  ofertaNoAceptada: () => {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      onOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      },
+    });
+
+    Toast.fire({
+      icon: 'error',
+      title: 'La contraoferta no fue aceptada'
+    });
+  },
+
+};
+
+const Button = ({text, style, onClick}, props) => {
+  return (
+    <button
+      type="button"
+      className="swal2-confirm swal2-styled"
+      onClick={onClick}
+      style={{ backgroundColor: 'gold', ...style }}
+      {...props}
+    >
+      {text}
+    </button>
+  );
+};
+
 const Game = () => {
   const [maletinesDisponibles, setMaletinesDisponibles] = React.useState([]);
   const [isFirstSelection, setFirstSelection] = React.useState(true);
@@ -47,100 +100,66 @@ const Game = () => {
 
   // Esto se ejecuta solo al montar el componente
   React.useEffect(() => {
-    MySwal.fire({
-      title: <p>Bienvenido</p>,
-      html: <p>Selecciona un maletin para empezar a jugar</p>,
-      footer: 'Medio Trato',
-      confirmButtonColor: 'Gold',
-    });
+    swals.bienvenida();
 
-    setMaletinesDisponibles(generarMaletines(VALORES))
+    setMaletinesDisponibles(generarMaletines(VALORES));
   }, []);
 
-  const ofertar = () => {
- 
+  const displayContraoferta = () => {
     const valoresNoAbiertos = VALORES.filter((valor) => !valoresAbiertos.includes(valor));
     const valorDeOferta = Math.floor(generarOferta(valoresNoAbiertos));
 
-    const Buttons = ()=> {
-      return (
-        <div className="footer-buttons">
-          <button className="swal2-confirm swal2-styled" style={{backgroundColor:'gold'}} type="button" onClick={onTratoAceptado} >Trato</button>
-          <button className="swal2-confirm swal2-styled" style={{backgroundColor:'gold'}} type="button" onClick={()=>{MySwal.clickCancel()}} >No hay trato</button>
-          <button
-            className="swal2-confirm swal2-styled"
-            style={disableBtnContraoferta ? {display: 'none'} : {backgroundColor: 'gold'}}
-            type="button"
-            disabled={disableBtnContraoferta}
-            onClick={() => {
-              MySwal.fire({
-                title: 'Contraoferta',
-                input: 'range',
-                inputAttributes: {
-                  min: valorDeOferta,
-                  max: valorDeOferta * 1.5,
-                  step: 1,
-                },
-                inputValue: valorDeOferta,
-                text: 'Selecciona el valor de la contraoferta',
-                footer: false,
-                confirmButtonColor: 'Gold',
-              }).then((result) => {
-            
-
-                if (isValidContraoferta(valorDeOferta, result.value)) {
-                  setOferta(result.value);
-                  setTratoAceptado(true);
-                } else {
-                  const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    onOpen: (toast) => {
-                      toast.addEventListener('mouseenter', Swal.stopTimer)
-                      toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                  })
-                  
-                  Toast.fire({
-                    icon: 'error',
-                    title: 'La contraoferta no fue aceptada'
-                  })
-                  setDisableBtnContraoferta(true)
-                }
-              })
-             
-            }}
-          >
-             Contraoferta
-          </button>
-        </div>
-      );
-    };
-
     MySwal.fire({
+      title: 'Contraoferta',
+      input: 'range',
+      inputAttributes: {
+        min: valorDeOferta,
+        max: valorDeOferta * 1.5,
+        step: 1,
+      },
+      inputValue: valorDeOferta,
+      text: 'Selecciona el valor de la contraoferta',
       allowOutsideClick: false,
-      title: <p>Oferta</p>,
-      html: (
-        <div>
-          <p>El tesorero te ofrece:</p>
-          <h2>{`$ ${valorDeOferta}`}</h2>
-        </div>
-      ),
-      footer: <Buttons />,
-      showConfirmButton: false,
+      footer: false,
+      confirmButtonColor: 'Gold',
+    }).then((result) => {
+
+      if (isValidContraoferta(valorDeOferta, result.value)) {
+        setOferta(result.value);
+        setTratoAceptado(true);
+      } else {
+        swals.ofertaNoAceptada();
+        setDisableBtnContraoferta(true);
+      }
     });
-    setOferta(valorDeOferta);
   };
 
 
-
   const onTratoAceptado = () => {
-    
     setTratoAceptado(true);
     MySwal.clickConfirm();
+  };
+
+  const ofertar = () => {
+    const valoresNoAbiertos = VALORES.filter((valor) => !valoresAbiertos.includes(valor));
+    const valorDeOferta = Math.floor(generarOferta(valoresNoAbiertos));
+
+    swals.oferta(
+      valorDeOferta,
+      (
+        <div className="footer-buttons">
+          <Button text="Trato" onClick={onTratoAceptado} />
+          <Button text="No hay trato" onClick={() => MySwal.clickCancel()} />
+          <Button
+            disabled={disableBtnContraoferta}
+            text="Contraoferta"
+            onClick={displayContraoferta}
+            style={disableBtnContraoferta ? { display: 'none' } : {}}
+          />
+        </div>
+      ),
+    );
+    setOferta(valorDeOferta);
   };
 
   const maletinClickeado = (event, numero, valor) => {

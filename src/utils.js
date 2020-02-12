@@ -46,10 +46,19 @@ const generarOferta = (array) => {
 
 const quitarMaletin = (maletines, numero) => maletines.filter((malet) => malet.numero !== numero);
 
+
+const isValidContraoferta = (oferta, valorContraoferta) => {
+  /* Entre 15% y 20% */
+  const porcentajeRandom = (15 + (Math.random() * 5)) / 100;
+  const valorMaximoContraoferta = Math.floor(oferta + (oferta * porcentajeRandom));
+  return valorContraoferta < valorMaximoContraoferta;
+};
+
 export {
   pickRandomFromArray,
   randomizeArray,
   generarMaletines,
   generarOferta,
   quitarMaletin,
+  isValidContraoferta,
 };
