@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Medio-Trato/static/css/main.a431bdbc.chunk.css",
+    "main.css": "/Medio-Trato/static/css/main.5ebb356b.chunk.css",
     "main.js": "/Medio-Trato/static/js/main.800355e8.chunk.js",
     "main.js.map": "/Medio-Trato/static/js/main.800355e8.chunk.js.map",
     "runtime-main.js": "/Medio-Trato/static/js/runtime-main.85f5b308.js",
@@ -9,10 +9,10 @@
     "static/js/2.28ee57e8.chunk.js": "/Medio-Trato/static/js/2.28ee57e8.chunk.js",
     "static/js/2.28ee57e8.chunk.js.map": "/Medio-Trato/static/js/2.28ee57e8.chunk.js.map",
     "index.html": "/Medio-Trato/index.html",
-    "precache-manifest.447847a43b575a5a17fa41222fba7bda.js": "/Medio-Trato/precache-manifest.447847a43b575a5a17fa41222fba7bda.js",
+    "precache-manifest.ba16ec8c514a7074bf325a8ecf31fcb0.js": "/Medio-Trato/precache-manifest.ba16ec8c514a7074bf325a8ecf31fcb0.js",
     "service-worker.js": "/Medio-Trato/service-worker.js",
     "static/css/2.ff29e5f6.chunk.css.map": "/Medio-Trato/static/css/2.ff29e5f6.chunk.css.map",
-    "static/css/main.a431bdbc.chunk.css.map": "/Medio-Trato/static/css/main.a431bdbc.chunk.css.map",
+    "static/css/main.5ebb356b.chunk.css.map": "/Medio-Trato/static/css/main.5ebb356b.chunk.css.map",
     "static/js/2.28ee57e8.chunk.js.LICENSE": "/Medio-Trato/static/js/2.28ee57e8.chunk.js.LICENSE",
     "static/media/maletin.svg": "/Medio-Trato/static/media/maletin.64d3e995.svg"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.85f5b308.js",
     "static/css/2.ff29e5f6.chunk.css",
     "static/js/2.28ee57e8.chunk.js",
-    "static/css/main.a431bdbc.chunk.css",
+    "static/css/main.5ebb356b.chunk.css",
     "static/js/main.800355e8.chunk.js"
   ]
 }
